@@ -1044,6 +1044,7 @@ painting-services.jpg" class="btImage" alt="/wp-content/uploads/2017/02/000-pain
 		       
 		<!--- embeded maps tomP -->
 <style type="text/css">
+<!---	
 .google-map {
      padding-bottom: 50%;
      position: relative;
@@ -1055,6 +1056,21 @@ painting-services.jpg" class="btImage" alt="/wp-content/uploads/2017/02/000-pain
      left: 0;
      top: 0;
      position: absolute;
+}
+-->
+.google-map {
+  position: relative;
+  padding-bottom: 75%; /* adjust this value to change the aspect ratio */
+  height: 0;
+  overflow: hidden;
+}
+
+.google-map iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
 }
 </style>
 		<div class="google-map">
