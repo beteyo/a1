@@ -10,6 +10,18 @@
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="robots" content="max-image-preview:large">
 
+	<!---Added for google maps erorrs, tomP---->
+	<content-Security-Policy enabled="true">
+  		<script-src self="true">
+    			<add source="*.googleapis.com"/>            
+  		</script-src>
+  		<connect-src self="true">
+    			<add source="*.googleapis.com"/>            
+  		</connect-src>
+	</content-Security-Policy>
+	<!--- --->
+
+
 <link rel="dns-prefetch" href="https://oss.maxcdn.com">
 <link rel="dns-prefetch" href="https://s.w.org">
 
@@ -1037,9 +1049,9 @@ painting-services.jpg" class="btImage" alt="/wp-content/uploads/2017/02/000-pain
                      <h2><span class="dash"><span class="h2content">Where we are</span></span></h2>
                   </header>
                   <hr class="bottomSmallSpaced noBorder">
-                  <div id="map_canvas66cf9a2e58a15" style="width:100%;height:540px;;">
+                  <div id="map_canvas66cf9a2e58a15" style="width:100%;height:100%;">
 			  <!---added embeded maps tomP --->
-			  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3853.5181165663735!2d-73.18172388760283!3d41.47401657116933!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e7e8b3a9dad95b%3A0x4d8efc8ce7fd460f!2s209%20Bagley%20Rd%2C%20Southbury%2C%20CT%2006488%2C%20Jungtin%C4%97s%20Valstijos!5e1!3m2!1slt!2slt!4v1726261763447!5m2!1slt!2slt" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+			  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3853.5181165663735!2d-73.18172388760283!3d41.47401657116933!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e7e8b3a9dad95b%3A0x4d8efc8ce7fd460f!2s209%20Bagley%20Rd%2C%20Southbury%2C%20CT%2006488%2C%20Jungtin%C4%97s%20Valstijos!5e1!3m2!1slt!2slt!4v1726261763447!5m2!1slt!2sus" style="border:0;" width="600" height="450" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                   </div>
                   <hr class="bottomSmallSpaced noBorder">
                </div>
