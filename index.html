@@ -1034,26 +1034,59 @@ painting-services.jpg" class="btImage" alt="/wp-content/uploads/2017/02/000-pain
                      </div>
                   </div> 
 -->
-		<form action="https://formspree.io/f/mldrklqg" method="POST">
+		<p></p>       
+		<form id="my-form" action="https://formspree.io/f/mldrklqg" method="POST">
 		<div class="btQuoteBooking ">
                      <div class="btQuoteContact">
                         <div class="btQuoteItem btContactFieldMandatory">
                            <input type="text" name="name" class="btContactName btContactField" placeholder="Name">
                         </div>
                         <div class="btQuoteItem btContactFieldMandatory">
-                           <input type="email" name="email" class="btContactEmail btContactField" placeholder="Email">
+                           <input type="email" required name="email" class="btContactEmail btContactField" placeholder="Email">
                         </div>                        
                         <div class="btQuoteItem btQuoteItemFullWidth">
-                           <textarea name="message" class="btContactMessage btContactField btContactFieldMandatory" placeholder="Message"></textarea>
+                           <textarea name="message" required class="btContactMessage btContactField btContactFieldMandatory" placeholder="Message, also you can leave a phone number here..."></textarea>
                         </div>
                         <div class="boldBtn btnAccent btnSmall btnIco">
                            <button type="submit" class="btContactSubmit" data-ico-bold="&#58969;">Submit</button>
                         </div>
-                        <div class="btSubmitMessage">
+                        <div id="my-form-status" class="btSubmitMessage">
                         </div>
                      </div>
                   </div> 			
 		</form>
+<script>
+  var form = document.getElementById("my-form");
+  
+  async function handleSubmit(event) {
+    event.preventDefault();
+    var status = document.getElementById("my-form-status");
+    var data = new FormData(event.target);
+    fetch(event.target.action, {
+      method: form.method,
+      body: data,
+      headers: {
+          'Accept': 'application/json'
+      }
+    }).then(response => {
+      if (response.ok) {
+        status.innerHTML = "Thanks for your submission!";
+        form.reset()
+      } else {
+        response.json().then(data => {
+          if (Object.hasOwn(data, 'errors')) {
+            status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
+          } else {
+            status.innerHTML = "Oops! There was a problem submitting your form"
+          }
+        })
+      }
+    }).catch(error => {
+      status.innerHTML = "Oops! There was a problem submitting your form"
+    });
+  }
+  form.addEventListener("submit", handleSubmit)
+</script>
 			
                </div>
             </div>
