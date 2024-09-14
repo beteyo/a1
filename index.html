@@ -1038,9 +1038,11 @@ painting-services.jpg" class="btImage" alt="/wp-content/uploads/2017/02/000-pain
 		<form id="my-form" action="https://formspree.io/f/mldrklqg" method="POST">
 		<div class="btQuoteBooking ">
                      <div class="btQuoteContact">
-                        <div class="btQuoteItem btContactFieldMandatory">
+<!--                
+			<div class="btQuoteItem btContactFieldMandatory">
                            <input type="text" name="name" class="btContactName btContactField" placeholder="Name">
                         </div>
+-->
                         <div class="btQuoteItem btContactFieldMandatory">
                            <input type="email" required name="email" class="btContactEmail btContactField" placeholder="Email">
                         </div>                        
@@ -1070,7 +1072,7 @@ painting-services.jpg" class="btImage" alt="/wp-content/uploads/2017/02/000-pain
       }
     }).then(response => {
       if (response.ok) {
-        status.innerHTML = "Thanks for your submission!";
+        status.innerHTML = "Thanks for your submission, we will contact you ASAP! ;)";
         form.reset()
       } else {
         response.json().then(data => {
