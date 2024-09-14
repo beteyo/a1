@@ -1050,7 +1050,7 @@ painting-services.jpg" class="btImage" alt="/wp-content/uploads/2017/02/000-pain
                            <textarea name="message" required class="btContactMessage btContactField btContactFieldMandatory" placeholder="Message, also you can leave a phone number here..."></textarea>
                         </div>
                         <div class="boldBtn btnAccent btnSmall btnIco">
-                           <button type="submit" class="btContactSubmit g-recaptcha" data-sitekey="6LfmT0MqAAAAAHjuu_xHJcH9R3QUlFIqtBjXM4kz" data-callback='onSubmit' data-action='submit' data-ico-bold="&#58969;">Submit</button>
+                           <button type="submit" class="btContactSubmit g-recaptcha" data-sitekey="6LfmT0MqAAAAAHjuu_xHJcH9R3QUlFIqtBjXM4kz" data-ico-bold="&#58969;">Submit</button>
                         </div>
                         <div id="my-form-status" class="btSubmitMessage">
                         </div>
@@ -1059,13 +1059,7 @@ painting-services.jpg" class="btImage" alt="/wp-content/uploads/2017/02/000-pain
 		</form>
 		       
 <!---recaptha --->		       
-<script src="https://www.google.com/recaptcha/api.js"></script>
-<script>
-   function onSubmit(token) {
-     document.getElementById("my-form").submit();
-   }
- </script>
-
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 		       
 <script>
   var form = document.getElementById("my-form");
