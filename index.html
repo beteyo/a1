@@ -1117,12 +1117,13 @@ $(document).ready(async function() {
     });
 });
 */
-/*
+
 var form = document.getElementById("my-form");
   
   async function handleSubmit(event) {
     event.preventDefault();
     var status = document.getElementById("my-form-status");
+    status.innerHTML = "Submitting...";
     var data = new FormData(event.target);
     fetch(event.target.action, {
       method: form.method,
@@ -1132,7 +1133,7 @@ var form = document.getElementById("my-form");
       }
     }).then(response => {
       if (response.ok) {
-        status.innerHTML = "Thanks for your submission!";
+        status.innerHTML = "Submision receivied. We will contact you ASAP!";
         form.reset()
       } else {
         response.json().then(data => {
@@ -1149,8 +1150,8 @@ var form = document.getElementById("my-form");
   }
 	
   form.addEventListener("submit", handleSubmit)
-*/
 
+/*
   $(document).ready(function() {
     var $form = $("#my-form");
     var $status = $("#my-form-status");
@@ -1177,7 +1178,7 @@ var form = document.getElementById("my-form");
 
     $form.on("submit", handleSubmit);
   });
-
+*/
 	
 </script>
 			
