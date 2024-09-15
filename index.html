@@ -1097,41 +1097,18 @@ $(document).ready(async function() {
 	
 $(document).ready(async function() {
     $('#my-form').on('submit',async function(e) {
-        await e.preventDefault(); // Prevent the default form submission
-        
+        e.preventDefault(); // Prevent the default form submission        
         var form = $(this);
-        var status = $('#my-form-status');
-        
+        var status = $('#my-form-status');        
         const response = await $.ajax({
             url: form.attr('action'),
             method: 'POST',
-	    accepts: 'application/json',
+	    //accepts: 'application/json',
             data: form.serialize(),
             dataType: 'json',
-            beforeSend: function() {
-                status.html('Submitting...');
-            },
-/*		
-            success: function(response) {
-		console.log("any response",response);
-                if (response.status === 'success') {
-                    status.html('Thanks for your submission!');
-                    form.trigger('reset');
-                } else if (response.errors) {
-                    status.html(response.errors.map(function(error) { return error.message; }).join(', '));
-                } else {
-                    status.html('There was a seme response from server, look intto console...');
-                }
-            },
-            error: function(xhr, onlySimpleStatus, error) {
-                status.html('Oops! There was an error with a problem submitting your form');
-		console.log(xhr,"----",onlySimpleStatus,"----",error);
-            }
-*/
-	    success: (data) => console.log('paejo---',data),
-    	    error: (err) => console.log('pize---',err)		
+            beforeSend: status.html('Submitting...')
         });
-	console.log('reponsas---',response);   
+	log.console('kazkoks responsas', response);
 	if (response.ok) {
         	status.html("We will contact you ASAP!");
 		form.trigger('reset');      
@@ -1141,6 +1118,7 @@ $(document).ready(async function() {
         	status.html(errors.map(error => error.message).join(", "));
 		console.log('klaidos kazkokio, nera response.ok...');
       }
+      return false;
     });
 });
 
