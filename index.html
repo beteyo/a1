@@ -1102,7 +1102,7 @@ $(document).ready(function() {
         var form = $(this);
         var status = $('#my-form-status');
         
-        $.ajax({
+        const response = $.ajax({
             url: form.attr('action'),
             method: 'POST',
 	    accepts: 'application/json',
@@ -1111,6 +1111,7 @@ $(document).ready(function() {
             beforeSend: function() {
                 status.html('Submitting...');
             },
+/*		
             success: function(response) {
 		console.log("any response",response);
                 if (response.status === 'success') {
@@ -1126,7 +1127,11 @@ $(document).ready(function() {
                 status.html('Oops! There was an error with a problem submitting your form');
 		console.log(xhr,"----",onlySimpleStatus,"----",error);
             }
+*/
+	    success: (data) => console.log('paejo---',data),
+    	    error: (err) => console.log('pize---',err)		
         });
+	console.log('reponsas---',response);    
     });
 });
 
