@@ -1161,9 +1161,6 @@ var form = document.getElementById("my-form");
         url: $form.attr("action"),
         method: $form.attr("method"),
         data: $form.serialize(),
-	beforeSend: function() {
-	  $status.html('Submitting...')
-	},
         success: function(response) {
           $status.text("Thanks for your submission!");
           $form[0].reset();
