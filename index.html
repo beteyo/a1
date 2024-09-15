@@ -1036,7 +1036,7 @@ painting-services.jpg" class="btImage" alt="/wp-content/uploads/2017/02/000-pain
 -->
 		<p></p>
 		       <!---  action="https://formspree.io/f/mldrklqg" --->
-		<form id="my-form" action="https://formsubmit.co/cf9ea64bfe2287acef0868cb8a7ac1ae" method="POST">
+		<form id="my-form" action="https://formsubmit.co/ajax/cf9ea64bfe2287acef0868cb8a7ac1ae" method="POST">
 		<div class="btQuoteBooking ">
                      <div class="btQuoteContact">              
 			<div class="btQuoteItem btContactFieldMandatory">
@@ -1108,7 +1108,9 @@ $(document).ready(async function() {
           'Accept': 'application/json'
         }
       });
-
+	    
+      $status.html("Thanks for your submission!");
+	    
       if (response.ok) {
         $status.html("We will contact you ASAP!");
         $form[0].reset();
@@ -1119,7 +1121,6 @@ $(document).ready(async function() {
     } catch (error) {
       $status.html("Oops! There was a problem submitting your form");
     }
-  $status.html("Thanks for your submission!");
   });
 });
 	
