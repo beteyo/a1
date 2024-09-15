@@ -1058,7 +1058,7 @@ painting-services.jpg" class="btImage" alt="/wp-content/uploads/2017/02/000-pain
 		</form>
 		       		       
 <script>	
-
+<!---
 $(document).ready(async function() {
   $('#my-form').on('submit', async function(e) {
     e.preventDefault();
@@ -1068,7 +1068,7 @@ $(document).ready(async function() {
       const response = await $.ajax({
         url: $form.attr('action'),
         method: 'POST',
-        data: $form.serialize(),
+        data: {$form.serialize()},
         dataType: 'json',
 	beforeSend: function() {
                 //$status.html('<img src="loading.gif"> Submitting...');
@@ -1090,9 +1090,41 @@ $(document).ready(async function() {
       $status.html("Oops! There was a problem submitting your form");
     }
   });
-  returnn false;
 	
 });
+
+-->
+	
+$(document).ready(function() {
+    $('#my-form').ajaxForm({
+        beforeSubmit: function(formData, jqForm, options) {
+            var status = $('#my-form-status');
+            status.html('Submitting ...');
+
+            $.ajax({
+                url: $(this).attr('action'),
+                type: $(this).attr('method'),
+                data: formData,
+                dataType: 'json',
+                success: function(response) {
+                    if (response.status === 'success') {
+                        status.html('Thanks for your submission!');
+                        jqForm[0].reset();
+                    } else if (response.errors) {
+                        status.html(response.errors.map(function(error) { return error.message; }).join(', '));
+                    } else {
+                        status.html('Oops! There was a problem submitting your form');
+                    }
+                },
+                error: function(xhr, status, error) {
+                    status.html('Oops! There was a problem submitting your form');
+                }
+            });
+        }
+    });
+});
+
+	
 </script>
 			
                </div>
