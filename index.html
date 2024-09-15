@@ -1111,6 +1111,7 @@ $(document).ready(function() {
                 status.html('Submitting...');
             },
             success: function(response) {
+		console.log(response);
                 if (response.status === 'success') {
                     status.html('Thanks for your submission!');
                     form.trigger('reset');
@@ -1120,8 +1121,9 @@ $(document).ready(function() {
                     status.html('Oops! There was a problem submitting your form');
                 }
             },
-            error: function(xhr, status, error) {
+            error: function(xhr, onlySimpleStatus, error) {
                 status.html('Oops! There was a problem submitting your form');
+		console.log(error);
             }
         });
     });
