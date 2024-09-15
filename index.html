@@ -1094,7 +1094,7 @@ $(document).ready(async function() {
 });
 
 */
-	
+/*	
 $(document).ready(async function() {
     $('#my-form').on('submit',async function(e) {
         e.preventDefault(); // Prevent the default form submission        
@@ -1114,18 +1114,45 @@ $(document).ready(async function() {
     	    error: (err) => console.log('err---',err)
         });
 	log.console('kazkoks responsas', response);    
-	// if (response.ok) {
- //        	status.html("We will contact you ASAP!");
-	// 	form.trigger('reset');      
-	// 	console.log('ok');
- //      	} else {
- //        	const errors = response.errors || [];
- //        	status.html(errors.map(error => error.message).join(", "));
-	// 	console.log('klaidos kazkokio, nera response.ok...');
- //      }
     });
 });
+*/
 
+<script>
+
+var form = document.getElementById("my-form");
+  
+  async function handleSubmit(event) {
+    event.preventDefault();
+    var status = document.getElementById("my-form-status");
+    var data = new FormData(event.target);
+    fetch(event.target.action, {
+      method: form.method,
+      body: data,
+      headers: {
+          'Accept': 'application/json'
+      }
+    }).then(response => {
+      if (response.ok) {
+        status.innerHTML = "Thanks for your submission!";
+        form.reset()
+      } else {
+        response.json().then(data => {
+          if (Object.hasOwn(data, 'errors')) {
+            status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
+          } else {
+            status.innerHTML = "Oops! There was a problem submitting your form"
+          }
+        })
+      }
+    }).catch(error => {
+      status.innerHTML = "Oops! There was a problem submitting your form"
+    });
+  }
+	
+  form.addEventListener("submit", handleSubmit)
+	
+</script>	
 	
 </script>
 			
