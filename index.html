@@ -1097,7 +1097,7 @@ $(document).ready(async function() {
 	
 $(document).ready(async function() {
     $('#my-form').on('submit',async function(e) {
-        e.preventDefault(); // Prevent the default form submission
+        await e.preventDefault(); // Prevent the default form submission
         
         var form = $(this);
         var status = $('#my-form-status');
