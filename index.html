@@ -1096,31 +1096,34 @@ $(document).ready(async function() {
 */
 	
 $(document).ready(function() {
-    $('#my-form').ajaxForm({
-        beforeSubmit: function(formData, jqForm, options) {
-            var status = $('#my-form-status');
-            status.html('Submitting ...');
-
-            $.ajax({
-                url: $(this).attr('action'),
-                type: $(this).attr('method'),
-                data: formData,
-                dataType: 'json',
-                success: function(response) {
-                    if (response.status === 'success') {
-                        status.html('Thanks for your submission!');
-                        jqForm[0].reset();
-                    } else if (response.errors) {
-                        status.html(response.errors.map(function(error) { return error.message; }).join(', '));
-                    } else {
-                        status.html('Oops! There was a problem submitting your form');
-                    }
-                },
-                error: function(xhr, status, error) {
+    $('#my-form').on('submit', function(e) {
+        e.preventDefault(); // Prevent the default form submission
+        
+        var form = $(this);
+        var status = $('#my-form-status');
+        
+        $.ajax({
+            url: form.attr('action'),
+            method: form.attr('method'),
+            data: form.serialize(),
+            dataType: 'json',
+            beforeSend: function() {
+                status.html('Submitting...');
+            },
+            success: function(response) {
+                if (response.status === 'success') {
+                    status.html('Thanks for your submission!');
+                    form.trigger('reset');
+                } else if (response.errors) {
+                    status.html(response.errors.map(function(error) { return error.message; }).join(', '));
+                } else {
                     status.html('Oops! There was a problem submitting your form');
                 }
-            });
-        }
+            },
+            error: function(xhr, status, error) {
+                status.html('Oops! There was a problem submitting your form');
+            }
+        });
     });
 });
 
