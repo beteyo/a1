@@ -1059,40 +1059,6 @@ painting-services.jpg" class="btImage" alt="/wp-content/uploads/2017/02/000-pain
 		       		       
 <script>	
 	
-$(document).ready(async function() {
-  $('#my-form').on('submit', async function(e) {
-    e.preventDefault();
-    var $status = $('#my-form-status');
-    $status.html("Thanks for your submission.");
-    var $form = $(this);
-    try {
-      const response = await $.ajax({
-        url: $form.attr('action'),
-        method: 'POST',
-        data: $form.serialize(),
-        dataType: 'json',
-	success: (data) => console.log(data),
-     	error: (err) => console.log(err)
-      });
-	    
- //      if (response.ok) {
- //        $status.html("We will contact you ASAP!");
- //        $form[0].reset();
-	// //$form.trigger('reset');      
- //      } else {
- //        const errors = response.errors || [];
- //        $status.html(errors.map(error => error.message).join(", "));
- //      }
-    } catch (error) {
-      $status.html("Oops! There was a problem submitting your form");
-    }
-  });
-	
-});
-
-
-/*
-
 var form = document.getElementById("my-form");
   
   async function handleSubmit(event) {
@@ -1125,35 +1091,6 @@ var form = document.getElementById("my-form");
   }
 	
   form.addEventListener("submit", handleSubmit)
-*/
-/*
-  $(document).ready(function() {
-    var $form = $("#my-form");
-    var $status = $("#my-form-status");
-
-    function handleSubmit(e) {
-      e.preventDefault();
-      $.ajax({
-        url: $form.attr("action"),
-        method: $form.attr("method"),
-        data: $form.serialize(),
-        success: function(response) {
-          $status.text("Thanks for your submission!");
-          $form[0].reset();
-        },
-        error: function(xhr, status, error) {
-          var errorMessage = xhr.responseJSON && xhr.responseJSON.errors ? 
-            xhr.responseJSON.errors.map(error => error.message).join(", ") : 
-            "Oops! There was a problem submitting your form";
-          
-          $status.text(errorMessage);
-        }
-      });
-    }
-
-    $form.on("submit", handleSubmit);
-  });
-*/
 	
 </script>
 			
