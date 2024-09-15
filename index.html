@@ -1112,19 +1112,19 @@ $(document).ready(function() {
                 status.html('Submitting...');
             },
             success: function(response) {
-		console.log(response);
+		console.log("any response",response);
                 if (response.status === 'success') {
                     status.html('Thanks for your submission!');
                     form.trigger('reset');
                 } else if (response.errors) {
                     status.html(response.errors.map(function(error) { return error.message; }).join(', '));
                 } else {
-                    status.html('Oops! There was a problem submitting your form');
+                    status.html('There was a seme response from server, look intto console...');
                 }
             },
             error: function(xhr, onlySimpleStatus, error) {
-                status.html('Oops! There was a problem submitting your form');
-		console.log(xhr,onlySimpleStatus,error);
+                status.html('Oops! There was an error with a problem submitting your form');
+		console.log(xhr,"----",onlySimpleStatus,"----",error);
             }
         });
     });
