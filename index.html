@@ -1058,24 +1058,28 @@ painting-services.jpg" class="btImage" alt="/wp-content/uploads/2017/02/000-pain
 		</form>
 		       		       
 <script>	
-<!---	
+
 $(document).ready(async function() {
   $('#my-form').on('submit', async function(event) {
     event.preventDefault();
     var $status = $('#my-form-status');
-    $status.html("Thanks for your submission.");
     var $form = $(this);
     try {
       const response = await $.ajax({
         url: $form.attr('action'),
         method: 'POST',
         data: $form.serialize(),
-        dataType: 'json'
+        dataType: 'json',
+	beforeSend: function() {
+                //status.html('<img src="loading.gif"> Submitting...');
+		$status.html("Thanks for your submission.");
+        },
       });
 	    
       if (response.ok) {
         $status.html("We will contact you ASAP!");
-        $form[0].reset();
+        //$form[0].reset();
+	$form.trigger('reset');      
       } else {
         const errors = response.errors || [];
         $status.html(errors.map(error => error.message).join(", "));
@@ -1086,9 +1090,9 @@ $(document).ready(async function() {
   });
 
 });
--->
 
-	
+
+<!---	
 $(document).ready(function() {
     $('#my-form').on('submit', function(e) {
         e.preventDefault(); // Prevent the default form submission
@@ -1121,7 +1125,7 @@ $(document).ready(function() {
         });
     });
 });	
-
+-->
 </script>
 			
                </div>
