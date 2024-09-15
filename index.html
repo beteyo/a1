@@ -1058,7 +1058,7 @@ painting-services.jpg" class="btImage" alt="/wp-content/uploads/2017/02/000-pain
 		</form>
 		       		       
 <script>	
-<!---
+/*
 $(document).ready(async function() {
   $('#my-form').on('submit', async function(e) {
     e.preventDefault();
@@ -1068,7 +1068,7 @@ $(document).ready(async function() {
       const response = await $.ajax({
         url: $form.attr('action'),
         method: 'POST',
-        data: {$form.serialize()},
+        data: $form.serialize(),
         dataType: 'json',
 	beforeSend: function() {
                 //$status.html('<img src="loading.gif"> Submitting...');
@@ -1093,7 +1093,7 @@ $(document).ready(async function() {
 	
 });
 
--->
+*/
 	
 $(document).ready(function() {
     $('#my-form').ajaxForm({
