@@ -1162,7 +1162,7 @@ var form = document.getElementById("my-form");
         method: $form.attr("method"),
         data: $form.serialize(),
 	beforeSend: function() {
-	  status.html('Submitting...')
+	  $status.html('Submitting...')
 	},
         success: function(response) {
           $status.text("Thanks for your submission!");
