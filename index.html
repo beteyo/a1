@@ -1104,7 +1104,8 @@ $(document).ready(function() {
         
         $.ajax({
             url: form.attr('action'),
-            method: form.attr('method'),
+            method: 'POST',
+	    accepts: 'application/json',
             data: form.serialize(),
             dataType: 'json',
             beforeSend: function() {
@@ -1123,7 +1124,7 @@ $(document).ready(function() {
             },
             error: function(xhr, onlySimpleStatus, error) {
                 status.html('Oops! There was a problem submitting your form');
-		console.log(error);
+		console.log(xhr,onlySimpleStatus,error);
             }
         });
     });
