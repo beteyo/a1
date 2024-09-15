@@ -1075,7 +1075,7 @@ var form = document.getElementById("my-form");
   async function handleSubmit(event) {
     event.preventDefault();
     var status = document.getElementById("my-form-status");
-    status.innerHTML = "Submitting...";
+    status.innerHTML = "<img src="/---lightbox-plugin/loading.gif"> Submitting...";
     var data = new FormData(event.target);
     fetch(event.target.action, {
       method: form.method,
