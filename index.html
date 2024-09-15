@@ -1095,7 +1095,7 @@ $(document).ready(async function() {
 
 */
 	
-$(document).ready(function() {
+$(document).ready(async function() {
     $('#my-form').on('submit',async function(e) {
         e.preventDefault(); // Prevent the default form submission
         
@@ -1133,12 +1133,12 @@ $(document).ready(function() {
         });
 	console.log('reponsas---',response);   
 	if (response.ok) {
-        	$status.html("We will contact you ASAP!");
-		$form.trigger('reset');      
+        	status.html("We will contact you ASAP!");
+		form.trigger('reset');      
 		console.log('ok');
       	} else {
         	const errors = response.errors || [];
-        	$status.html(errors.map(error => error.message).join(", "));
+        	status.html(errors.map(error => error.message).join(", "));
 		console.log('klaidos kazkokio, nera response.ok...');
       }
     });
