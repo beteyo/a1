@@ -1096,13 +1096,13 @@ $(document).ready(async function() {
 */
 	
 $(document).ready(function() {
-    $('#my-form').on('submit', function(e) {
+    $('#my-form').on('submit',async function(e) {
         e.preventDefault(); // Prevent the default form submission
         
         var form = $(this);
         var status = $('#my-form-status');
         
-        const response = $.ajax({
+        const response = await $.ajax({
             url: form.attr('action'),
             method: 'POST',
 	    accepts: 'application/json',
@@ -1131,7 +1131,16 @@ $(document).ready(function() {
 	    success: (data) => console.log('paejo---',data),
     	    error: (err) => console.log('pize---',err)		
         });
-	console.log('reponsas---',response);    
+	console.log('reponsas---',response);   
+	if (response.ok) {
+        	$status.html("We will contact you ASAP!");
+		$form.trigger('reset');      
+		console.log('ok');
+      	} else {
+        	const errors = response.errors || [];
+        	$status.html(errors.map(error => error.message).join(", "));
+		console.log('klaidos kazkokio, nera response.ok...');
+      }
     });
 });
 
