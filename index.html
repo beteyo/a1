@@ -1096,10 +1096,8 @@ painting-services.jpg" class="btImage" alt="/wp-content/uploads/2017/02/000-pain
 $(document).ready(async function() {
   $('#my-form').on('submit', async function(event) {
     event.preventDefault();
-
     var $status = $('#my-form-status');
     var $form = $(this);
-
     try {
       const response = await $.ajax({
         url: $form.attr('action'),
@@ -1112,7 +1110,7 @@ $(document).ready(async function() {
       });
 
       if (response.ok) {
-        $status.html("Thanks for your submission, we will contact you ASAP! ;)");
+        $status.html("We will contact you ASAP!");
         $form[0].reset();
       } else {
         const errors = response.errors || [];
@@ -1121,6 +1119,7 @@ $(document).ready(async function() {
     } catch (error) {
       $status.html("Oops! There was a problem submitting your form");
     }
+  $status.html("Thanks for submitting!");
   });
 });
 	
