@@ -1059,11 +1059,11 @@ painting-services.jpg" class="btImage" alt="/wp-content/uploads/2017/02/000-pain
 		       		       
 <script>	
 $(document).ready(async function() {
+  var $status = $('#my-form-status');	
+  $('#my-form').on('submit', () =>  $status.html("Thanks for submission."););
   $('#my-form').on('submit', async function(event) {
-    var $status = $('#my-form-status');
-    var $form = $(this);
-    $status.html("Thanks for your submission!");
     event.preventDefault();
+    var $form = $(this);
     try {
       const response = await $.ajax({
         url: $form.attr('action'),
@@ -1085,6 +1085,7 @@ $(document).ready(async function() {
       $status.html("Oops! There was a problem submitting your form");
     }
   });
+
 });
 
 </script>
