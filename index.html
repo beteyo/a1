@@ -1099,26 +1099,30 @@ $(document).ready(async function() {
     $('#my-form').on('submit',async function(e) {
         e.preventDefault(); // Prevent the default form submission        
         var form = $(this);
-        var status = $('#my-form-status');        
+        var status = $('#my-form-status');
+	console.log('eventas---',event);
+	console.log('actiono-urlas:',form.attr('action'));    
         const response = await $.ajax({
             url: form.attr('action'),
             method: 'POST',
-	    //accepts: 'application/json',
             data: form.serialize(),
             dataType: 'json',
-            beforeSend: status.html('Submitting...')
+            beforeSend: function() {
+		    status.html('Submitting...')
+	    },
+	    success: (data) => console.log('success---',data),
+    	    error: (err) => console.log('err---',err)
         });
-	log.console('kazkoks responsas', response);
-	if (response.ok) {
-        	status.html("We will contact you ASAP!");
-		form.trigger('reset');      
-		console.log('ok');
-      	} else {
-        	const errors = response.errors || [];
-        	status.html(errors.map(error => error.message).join(", "));
-		console.log('klaidos kazkokio, nera response.ok...');
-      }
-      return false;
+	log.console('kazkoks responsas', response);    
+	// if (response.ok) {
+ //        	status.html("We will contact you ASAP!");
+	// 	form.trigger('reset');      
+	// 	console.log('ok');
+ //      	} else {
+ //        	const errors = response.errors || [];
+ //        	status.html(errors.map(error => error.message).join(", "));
+	// 	console.log('klaidos kazkokio, nera response.ok...');
+ //      }
     });
 });
 
