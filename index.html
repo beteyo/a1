@@ -997,7 +997,8 @@ painting-services.jpg" class="btImage" alt="/wp-content/uploads/2017/02/000-pain
                   </header>
 		       
 			
-<!--  old stuff no need, tomP
+
+		<form id="my-form" action="https://formsubmit.co/ajax/cf9ea64bfe2287acef0868cb8a7ac1ae" method="POST">
 		       
 		<div class="btQuoteBooking ">
                      <hr class="topSmallSpaced bottomSmallSpaced border">
@@ -1005,22 +1006,22 @@ painting-services.jpg" class="btImage" alt="/wp-content/uploads/2017/02/000-pain
                      </div>
                      <div class="btQuoteContact">
                         <div class="btQuoteItem btContactFieldMandatory">
-                           <input type="text" class="btContactName btContactField" placeholder="Name">
+                           <input type="text" class="btContactName btContactField" name="customer-name" placeholder="Name">
                         </div>
                         <div class="btQuoteItem btContactFieldMandatory">
-                           <input type="text" class="btContactEmail btContactField" placeholder="Email">
+                           <input type="text" class="btContactEmail btContactField" name="customer-email" placeholder="Email">
                         </div>
                         <div class="btQuoteItem btContactFieldMandatory">
-                           <input type="text" class="btContactPhone btContactField" placeholder="Phone">
+                           <input type="text" class="btContactPhone btContactField" name="customer-phone" placeholder="Phone">
                         </div>
                         <div class="btQuoteItem btContactFieldMandatory">
-                           <input type="text" class="btContactAddress btContactField" placeholder="Address">
+                           <input type="text" class="btContactAddress btContactField" name="customer-address" placeholder="Address">
                         </div>
                         <div class="btQuoteItem">
-                           <input type="text" class="btContactDate btContactField" placeholder="Preferred Service Date">
+                           <input type="text" class="btContactDate btContactField" name="prefered-date" placeholder="Preferred Service Date">
                         </div>
                         <div class="btQuoteItem">
-                           <select type="text" class="btContactTime btContactField">
+                           <select type="text" class="btContactTime btContactField" name="prefered-time">
                               <option value="">Preferred Service Time</option>
                               <option value="09:00">09:00</option>
                               <option value="10:00">10:00</option>
@@ -1035,18 +1036,22 @@ painting-services.jpg" class="btImage" alt="/wp-content/uploads/2017/02/000-pain
                            </select>
                         </div>
                         <div class="btQuoteItem btQuoteItemFullWidth">
-                           <textarea class="btContactMessage btContactField btContactFieldMandatory" placeholder="Message"></textarea>
+                           <textarea class="btContactMessage btContactField btContactFieldMandatory" name="message" placeholder="Message"></textarea>
                         </div>
                         <div class="boldBtn btnAccent btnSmall btnIco">
+			   <input type="hidden" name="_captcha" value="true">
+			   <input type="hidden" name="_cc" value="bdajihes790@paxnw.com">
                            <button type="submit" class="btContactSubmit" data-ico-bold="&#58969;">Submit</button>
                         </div>
-                        <div class="btSubmitMessage">
+  			<div id="my-form-status" class="btSubmitMessage">
                         </div>
                      </div>
                   </div> 
--->
+		</form>	
+
 		<p></p>
-		       <!---  action="https://formspree.io/f/mldrklqg" --->
+<!--  old experimental stuff no need anymore...
+		      
 		<form id="my-form" action="https://formsubmit.co/ajax/cf9ea64bfe2287acef0868cb8a7ac1ae" method="POST">
 		<div class="btQuoteBooking ">
                      <div class="btQuoteContact">              
@@ -1069,6 +1074,7 @@ painting-services.jpg" class="btImage" alt="/wp-content/uploads/2017/02/000-pain
                      </div>
                   </div> 			
 		</form>
+-->
 		       		       
 <script>	
 	
