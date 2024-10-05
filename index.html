@@ -1133,7 +1133,7 @@ var form = document.getElementById("my-form");
 <style type="text/css">
 .google-map {
   position: relative;
-  padding-bottom: 90%; /* adjust this value to change the aspect ratio */
+  padding-bottom: 91%; /* adjust this value to change the aspect ratio */
   height: 0;
   overflow: hidden;
 }
@@ -1200,8 +1200,11 @@ var form = document.getElementById("my-form");
 -->
 <script type="text/javascript" src="/wp-includes/js/jquery/ui/core.min.js?ver=1.13.1" id="jquery-ui-core-js"></script>
 <script type="text/javascript" src="/wp-includes/js/jquery/ui/datepicker.min.js?ver=1.13.1" id="jquery-ui-datepicker-js"></script>
+
 <script>
-	document.getElementById('preferedDate').datepicker();
+  $( function() {
+    $( "#preferedDate" ).datepicker();
+  } );
 </script>
 	
 <script type="text/javascript" src="/wp-includes/js/jquery/ui/mouse.min.js?ver=1.13.1" id="jquery-ui-mouse-js"></script>
