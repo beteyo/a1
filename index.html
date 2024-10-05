@@ -1018,7 +1018,7 @@ painting-services.jpg" class="btImage" alt="/wp-content/uploads/2017/02/000-pain
                            <input type="text" class="btContactAddress btContactField" name="customer-address" placeholder="Address" required>
                         </div>
                         <div class="btQuoteItem">
-                           <input type="text" class="btContactDate btContactField" name="prefered-date" placeholder="Preferred Service Date" required>
+                           <input type="text" class="btContactDate btContactField" id="preferedDate" name="prefered-date" placeholder="Preferred Service Date" required>
                         </div>
                         <div class="btQuoteItem">
                            <select type="text" class="btContactTime btContactField" name="prefered-time" required>
@@ -1133,7 +1133,7 @@ var form = document.getElementById("my-form");
 <style type="text/css">
 .google-map {
   position: relative;
-  padding-bottom: 75%; /* adjust this value to change the aspect ratio */
+  padding-bottom: 85%; /* adjust this value to change the aspect ratio */
   height: 0;
   overflow: hidden;
 }
@@ -1201,8 +1201,7 @@ var form = document.getElementById("my-form");
 <script type="text/javascript" src="/wp-includes/js/jquery/ui/core.min.js?ver=1.13.1" id="jquery-ui-core-js"></script>
 <script type="text/javascript" src="/wp-includes/js/jquery/ui/datepicker.min.js?ver=1.13.1" id="jquery-ui-datepicker-js"></script>
 <script>
-	(function( $ ) {			
-	            $( '.btContactDate' ).datepicker();})
+	documentGetElementByI('preferedDate').datepicker();
 </script>
 	
 <script type="text/javascript" src="/wp-includes/js/jquery/ui/mouse.min.js?ver=1.13.1" id="jquery-ui-mouse-js"></script>
