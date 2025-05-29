@@ -576,11 +576,22 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 -->
 
 <script>
-    window.BTURI = "/wp-content/themes/reconstruction2"; window.BTAJAXURL = "/wp-admin/admin-ajax.php";window.bt_text = [];window.bt_text.previous = 'previous';window.bt_text.next = 'next';</script>
-<style>
-    
-</style>	
-</head>
+    window.BTURI = "/wp-content/themes/reconstruction2"; window.BTAJAXURL = "/wp-admin/admin-ajax.php";window.bt_text = [];window.bt_text.previous = 'previous';window.bt_text.next = 'next';
+</script>
+
+<!-- Telegram Chat Widget -->
+  <script src="https://birdychat.com/js/chat-widget.js"></script>
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+      AdminChatWidget.init({
+      widgetId: "12bb0a1a-0298-498c-bb7f-90d9ab77183c",
+      chatTitle: "A real person ready to assist you 24/7",
+      primaryColor: "#c01c28",
+      position: "right"
+      });
+  });
+  </script>
+  <!-- End Telegram Chat Widget -->
 	
 <!--- Google Analytics--->	
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-N6V15V8SD9"></script>
@@ -591,7 +602,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
   gtag('config', 'G-N6V15V8SD9');
 </script>
-	
+</head>	
 
 <body class="home page-template-default page page-id-6 bodyPreloader">
 
